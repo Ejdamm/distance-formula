@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Avståndsformeln</string>
+    <string name="calc">Räkna ut</string>
+    <string name="y_u2082">y₂</string>
+    <string name="x_u2082">x₂</string>
+    <string name="y_u2081">y₁</string>
+    <string name="x_u2081">x₁</string>
+    <string name="fill_all_fields">Fyll i alla fält, idiotjävel!</string>
+    <string name="unit">" meter"</string>
+</resources>
