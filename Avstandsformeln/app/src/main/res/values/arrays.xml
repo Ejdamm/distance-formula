@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="pref_unit_values">
+        <item>@string/empty</item>
+        <item>mm</item>
+        <item>cm</item>
+        <item>@string/unit_meter</item>
+        <item>km</item>
+    </array>
+
+    <array name="pref_unit_entries">
+        <item>@string/unit_none</item>
+        <item>mm</item>
+        <item>cm</item>
+        <item>@string/unit_meter</item>
+        <item>km</item>
+    </array>
+
+    <array name="pref_decimals_values">
+        <item>"1"</item>
+        <item>"2"</item>
+        <item>"3"</item>
+        <item>"4"</item>
+        <item>"5"</item>
+        <item>"6"</item>
+        <item>"7"</item>
+        <item>"8"</item>
+        <item>"9"</item>
+    </array>
+
+    <array name="pref_decimals_entries">
+        <item>"1"</item>
+        <item>"2"</item>
+        <item>"3"</item>
+        <item>"4"</item>
+        <item>"5"</item>
+        <item>"6"</item>
+        <item>"7"</item>
+        <item>"8"</item>
+        <item>"9"</item>
+    </array>
+</resources>

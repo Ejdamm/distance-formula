@@ -1,8 +1,15 @@
 package se.olz.avstndsformeln;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -11,13 +18,38 @@ import static java.lang.Double.parseDouble;
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 import static java.lang.String.valueOf;
+import static se.olz.avstndsformeln.SettingsFragment.KEY_PREF_DECIMALS;
+import static se.olz.avstndsformeln.SettingsFragment.KEY_PREF_UNIT;
 
 public class MainActivity extends AppCompatActivity {
+    SharedPreferences sharedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+        sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.main_toolbar);
+        myToolbar.showOverflowMenu();
+        setSupportActionBar(myToolbar);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void calc(View view) {
@@ -44,11 +76,14 @@ public class MainActivity extends AppCompatActivity {
             }
 
             double distance = distanceFormula(inputD);
-            double rounded = Math.round(distance * 1000.0 ) / 1000.0;
-            outputText = valueOf(rounded) + getString(R.string.unit);
+            double rounded = roundToDecimal(distance);
+            String unit = sharedPref.getString(KEY_PREF_UNIT, "");
+            outputText = valueOf(rounded) + " " + unit;
         }
         else
+        {
             outputText = getString(R.string.fill_all_fields);
+        }
 
         TextView textView = (TextView)findViewById(R.id.result);
         textView.setText(outputText);
@@ -71,5 +106,12 @@ public class MainActivity extends AppCompatActivity {
     {
         for(String str : array) if(str.equals("")) return false;
         return true;
+    }
+
+    public double roundToDecimal(double d)
+    {
+        String decimals = sharedPref.getString(KEY_PREF_DECIMALS, "3");
+        double tens = pow(10.0, Integer.valueOf(decimals));
+        return Math.round(d * tens) / tens;
     }
 }
