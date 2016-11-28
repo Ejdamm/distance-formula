@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Avståndsformeln</string>
-    <string name="calc">Räkna ut</string>
-    <string name="fill_all_fields">Du måste fylla i alla fält</string>
     <string name="unit_meter">meter</string>
     <string name="unit_none">ingen</string>
     <string name="pref_unit_title">Enhet</string>
     <string name="action_settings">inställningar</string>
     <string name="pref_decimals_dialogTitle">Antal decimaler</string>
     <string name="pref_decimals_title">Decimaler</string>
+    <string name="clear">Rensa</string>
 </resources>

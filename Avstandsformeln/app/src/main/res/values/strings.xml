@@ -1,18 +1,15 @@
 <resources>
     <string name="empty" translatable="false">\0</string>
     <string name="app_name">Distance formula</string>
-    <string name="calc">Calculate</string>
     <string name="y_u2082" translatable="false">y₂</string>
     <string name="x_u2082" translatable="false">x₂</string>
     <string name="y_u2081" translatable="false">y₁</string>
     <string name="x_u2081" translatable="false">x₁</string>
-    <string name="fill_all_fields">You have to fill in all fields!</string>
     <string name="pref_unit_title">Unit</string>
     <string name="unit_none">none</string>
     <string name="unit_meter">meters</string>
     <string name="action_settings">settings</string>
-    <string name="pref_decimals" translatable="false">pref_decimals</string>
-    <string name="pref_unit" translatable="false">pref_unit</string>
     <string name="pref_decimals_title">Decimals</string>
     <string name="pref_decimals_dialogTitle">Number of decimals</string>
+    <string name="clear">Clear</string>
 </resources>
